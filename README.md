@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,56 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# Проект: Место-React
+Приложение React с регистрацией, авторизацией пользователя, а также возможностью добавления карточек, изменения данных пользователя, установки лайков. Реализовано в ходе обучения в Я.Практикум.
+
+## Демо #
+https://Waitman1.github.io/react-mesto-auth
+
+# Технологии #
+
+* Семантичная верстка
+* React
+* Webpack
+* API
+
+# Доступный функционал # 
+* авторизация и регистрация, хранение данных о пользователе
+* редактирование профиля
+* добавление карточек
+* удаление карточки
+* лайки
+* открытие фотографий на весь экран
+
+
+# Установка #
+
+Перед началом работы необходимо проверить наличие установленного node.js и npm
+
+Скопируйте проект на компьютер:
+
+```
+git clone https://github.com/waitman1/react-mesto-auth/
+```
+
+Установите зависимости:
+
+```
+npm install
+```
+
+# Работа #
+
+Для локальной разработки с поднятием сервера используйте:
+
+```
+npm start
+```
+
+Для сборки версии в продакшен:
+
+```
+npm run build
+```
+>>>>>>> ab660c0e9f4cde5fc94a5f5337536402cc165e6e
