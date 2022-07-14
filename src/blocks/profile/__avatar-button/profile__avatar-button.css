@@ -1,0 +1,15 @@
+.profile__avatar-button {
+	background-image: url('../../../images/Avatar_pencil.svg');
+	width: 26px;
+	height: 26px;
+	background-color: transparent;
+	position: absolute;
+	left: 47px;
+	bottom: 47px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	border: none;
+	padding: 0;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}

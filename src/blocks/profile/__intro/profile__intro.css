@@ -1,0 +1,13 @@
+.profile__intro {
+	grid-gap: 16px 18px;
+	display: grid;
+	gap: 16px 18px;
+	grid-template-areas:
+		 "name edit"
+		 "description description";
+	grid-template-columns: 1fr 24px;
+	grid-template-rows: 1fr 1fr;
+	margin-left: 30px;
+	margin-top: 24px;
+	max-width: 336px;
+}

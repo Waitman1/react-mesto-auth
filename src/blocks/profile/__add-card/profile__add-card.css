@@ -1,0 +1,32 @@
+.profile__add-card {
+  width: 150px;
+  height: 50px;
+  margin-right: 0;
+  margin-left: auto;
+  background: transparent;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  align-self: center;
+  box-sizing: border-box;
+  background-size: 22px 22px;
+  border-radius: 2px;
+  background-image: url('../../../images/add-card.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+.profile__add-card:hover {
+  opacity: 0.6;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .profile__add-card {
+    width: 282px;
+    margin: auto;
+	 background-size: 16px 16px;
+  }
+}

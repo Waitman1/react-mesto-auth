@@ -1,0 +1,12 @@
+.popup__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 30px;
+  padding: 0 0 13px;
+}
+
+.popup__text:last-of-type {
+  margin-bottom: 0;
+}

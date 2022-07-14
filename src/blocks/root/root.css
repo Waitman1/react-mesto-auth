@@ -1,0 +1,9 @@
+.root {
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  background-color: black;
+  max-width: 880px;
+  min-width: 320px;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}

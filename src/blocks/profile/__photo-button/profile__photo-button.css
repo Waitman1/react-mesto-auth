@@ -1,0 +1,18 @@
+.profile__photo-button {
+	background: url('../../../images/edit-pencil.svg');
+    border: none;
+    bottom: 47px;
+    cursor: pointer;
+    height: 26px;
+    left: 47px;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    transition: opacity .2s ease;
+    width: 26px;
+}
+
+.profile__photo-button:hover{
+ opacity: 1;
+
+}

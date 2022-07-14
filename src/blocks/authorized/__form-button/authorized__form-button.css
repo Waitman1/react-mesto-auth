@@ -1,0 +1,12 @@
+.authorized__form-button {
+	background-color: white;
+	color: black;
+	margin-top: 216px;
+}
+
+@media screen and (max-width: 540px) {
+	.authorized__form-button {
+		 font-size: 16px;
+		 margin-top: 173px;
+	}
+}
