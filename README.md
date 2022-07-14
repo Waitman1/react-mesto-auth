@@ -49,4 +49,3 @@ npm start
 ```
 npm run build
 ```
->>>>>>> ab660c0e9f4cde5fc94a5f5337536402cc165e6e
