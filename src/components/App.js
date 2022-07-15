@@ -33,7 +33,10 @@ function App() {
 
   useEffect(() => {
     tokenCheck();
-    if (!loggedIn) {
+  }, []);
+
+  useEffect(() => {
+    if (loggedIn) {
       api
         .getProfileInfo()
         .then((userStats) => {
@@ -60,7 +63,7 @@ function App() {
           console.log(err);
         });
     }
-  }, []);
+  }, [loggedIn]);
 
   function closeAllPopup() {
     setIsEditAvatarPopupOpen(false);
@@ -98,33 +101,20 @@ function App() {
     const isLiked = card.likes.some((item) => item._id === currentUser._id);
     const action = isLiked ? api.disLikeCard(card._id) : api.likeCard(card._id);
 
-    if (!isLiked) {
-      api
-        .likeCard(card._id)
-        .then((newCard) => {
-          setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      api
-        .disLikeCard(card._id)
-        .then((newCard) => {
-          setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    action
+      .then((newCard) => {
+        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleCardDelete(card) {
     api
       .deleteCard(card, card._id)
       .then(() => {
-        const result = cards.filter((item) => item._id != card._id);
-        setCards(result);
+        setCards((state) => state.filter((item) => item._id !== card._id));
       })
       .catch((err) => {
         console.log(err);
@@ -140,15 +130,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-      })
-      .finally(() => {
-        //
       });
-  }
-
-  function handleLogin(e) {
-    e.preventDefault();
-    setLoggedIn(true);
   }
 
   function tokenCheck() {
@@ -170,13 +152,13 @@ function App() {
     }
   }
 
-  function deleteToken() {
+  function logout() {
     localStorage.removeItem('token');
     history.push('/sign-in');
     setLoggedIn(false);
   }
 
-  function register(email, password) {
+  function onRegister(email, password) {
     auth
       .register(email, password)
       .then((res) => {
@@ -194,16 +176,26 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-  function authorize(email, password) {
+  function onAuthorize(email, password) {
     auth
       .authorize(email, password)
       .then((data) => {
+        localStorage.setItem('token', data.token);
+        return data;
+      })
+      .then((data) => {
         if (data.token) {
-          tokenCheck();
+          setLoggedIn(true);
+          setUserEmail(email);
           history.push('/');
         }
       })
-      .catch((err) => console.log(err));
+
+      .catch((err) => {
+        setIsInfoTooltipOpen(true);
+        setText('Что-то пошло не так! Попробуйте ещё раз.');
+        setImage(union_err);
+      });
   }
 
   return (
@@ -212,11 +204,11 @@ function App() {
         <div className="page__content">
           <Switch>
             <Route exact={true} path="/sign-in">
-              <Login authorize={authorize} handleLogin={handleLogin} />
+              <Login onAuthorize={onAuthorize} />
             </Route>
 
             <Route exact={true} path="/sign-up">
-              <Register onButtonClick={register} />
+              <Register onButtonClick={onRegister} />
             </Route>
 
             <ProtectedRoute
@@ -232,7 +224,7 @@ function App() {
               onCardDelete={handleCardDelete}
               component={Main}
               userData={userEmail}
-              onDeleteToken={deleteToken}></ProtectedRoute>
+              onLogout={logout}></ProtectedRoute>
           </Switch>
 
           <Footer />

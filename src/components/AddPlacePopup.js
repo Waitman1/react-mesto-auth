@@ -19,6 +19,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       name: namePlace,
       link: url,
     });
+    setNamePlace('');
+    setUrl('');
   }
 
   return (

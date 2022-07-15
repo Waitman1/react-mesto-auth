@@ -12,14 +12,14 @@ function Main({
   onCardDelete,
   cards,
   userData,
-  onDeleteToken,
+  onLogout,
 }) {
   const user = React.useContext(CurrentUserContext);
 
   const email = userData;
 
   function onSignOut() {
-    onDeleteToken();
+    onLogout();
   }
 
   return (
