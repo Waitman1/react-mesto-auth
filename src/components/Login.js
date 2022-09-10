@@ -26,7 +26,7 @@ function Login({ onAuthorize }) {
   }
 
   function onRegister() {
-    history.push('/sign-up');
+    history.push('/signup');
   }
 
   return (

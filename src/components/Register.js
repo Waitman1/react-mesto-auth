@@ -21,7 +21,7 @@ function Register({ onButtonClick }) {
   }
 
   function onLogin() {
-    history.push('/sign-in');
+    history.push('/signin');
   }
 
   return (
@@ -67,7 +67,7 @@ function Register({ onButtonClick }) {
 
           <p className="registered__text">
             Уже зарегистрированы?
-            <Link to="sign-in" className="registered__link">
+            <Link to="signin" className="registered__link">
               {' '}
               Войти
             </Link>
